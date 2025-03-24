@@ -28,7 +28,7 @@ function Projects() {
         const new_projects = projects.filter(item => item.category === value);
         setActiveProjects(new_projects);
     }
-    return ( <section id='projects'>
+    return ( <section id='projects' data-aos="fade-right">
         <div className="wrapper">
         <div className="section-header">
             <h1 className="heading-1">

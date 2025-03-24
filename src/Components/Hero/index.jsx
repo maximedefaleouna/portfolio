@@ -6,16 +6,15 @@ function Hero() {
     return ( <section id='hero'>
      <div className="wrapper info-container">
         <div className="column">
-            <h3 className="sub-title">
+            <h3 className="sub-title" data-aos="fade-right">
                 Salut suis <span className="primary">Maxime DEFALEOUNA</span>
             </h3>
-            <h1 className="heading-1">
-                Un etudiant <span>Devellopeur web</span>
+            <h1 className="heading-1" data-aos="fade-up">
+                Etudiant <span>Devellopeur web </span>
                 Fullstack
                 </h1>
-                <p className="muted">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Error itaque optio porro, ex, nemo dignissimos magnam maiores similique ipsa rem eos hic repudiandae accusamus. Alias corporis maiores doloribus aperiam odio?
-
+                <p className="muted" data-aos="fade-up" data-aos-delay="200">
+                Transformons ensemble vos idées en solutions digitales innovantes et sécurisées, en alliant expertise technique et créativité pour offrir des expériences uniques et performantes
                 </p>
                 <div className="flex-center buttons-wrapper">
                    {/* <Link to='services'smooth={true} className='btn primary'>Learn more</Link>
@@ -23,7 +22,7 @@ function Hero() {
 
                 </div>
         </div>
-        <div className="column hero-image">
+        <div className="column hero-image" data-aos="fade-left" data-aos-delay="200">
             <img src={me} alt="" />
 
         </div>

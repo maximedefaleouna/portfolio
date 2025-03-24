@@ -4,7 +4,7 @@ function SocialHandles() {
     return ( <div className="handles-container">
         {
             socialHandles.map((handle,index)=>(
-                <a href={handle.link} target='_blank' key={index} className='flex-center icon-wrapper'>
+                <a   {...(handle.link && { href: handle.link })} target='_blank' key={index} className='flex-center icon-wrapper'>
                     {handle.icon}
                 </a>
             ))

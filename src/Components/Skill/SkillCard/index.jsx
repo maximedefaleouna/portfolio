@@ -1,11 +1,11 @@
 import './SkillCard.css'
 import { BsPatchCheckFill } from 'react-icons/bs';
 function SkillCard({data,title}) {
-   console.log(title)
-   console.log("------------")
-   console.log(data)
+//    console.log(title)
+//    console.log("------------")
+//    console.log(data)
     return (
-     <div className='skill-card'>
+     <div className='skill-card' data-aos="fade-right">
         <h3 className="title gratient-text">{title}</h3>
         <div className="skill-content">
        {

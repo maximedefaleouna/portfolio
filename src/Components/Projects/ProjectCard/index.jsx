@@ -1,4 +1,5 @@
 import './ProjectCard.css'
+
 import { AiOutlineShareAlt } from 'react-icons/ai';
 function ProjectCard({
     title , image , description, stack , demoLink , className
@@ -42,7 +43,7 @@ function ProjectCard({
                 </div>
             </div>
             <div className=" flex-center buttons-container">
-                <a href={demoLink} target='_blank' className="btn primary">Demo</a>
+                <button disabled className="btn primary">Demo</button>
                 <div className="flex-center btn btn-share">
                     <AiOutlineShareAlt/>
                 </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState , useRef } from 'react';
 import './ProjectNav.css'
+import Aos from 'aos';
 function ProjectNav({
     tabs , onChange
 }) {
@@ -16,6 +17,7 @@ function ProjectNav({
     }
 
     useEffect(()=>{
+        Aos.refreshHard()
         const prevEl = itemsEls.current.filter((_,index)=>index < activeIndex);
         setOffset(sumArray(prevEl.map(item => item.offsetWidth)))
         setIndicatorWidth(itemsEls.current[activeIndex].offsetWidth)
@@ -27,6 +29,7 @@ function ProjectNav({
                 onClick={()=>{
                     setActiveIndex(index)
                     onChange(tab)
+                    Aos.refreshHard()
                 }}
                 key={index}
                 >

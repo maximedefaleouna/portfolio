@@ -9,8 +9,8 @@ function Achievement() {
 
     useEffect(()=>{
         const timeOutId = setTimeout(()=>{
-            setClient(421);
-            setExperience(6);
+            setClient(21);
+            setExperience(3);
             setProject(1.2);
         },3000)
         return ()=>clearTimeout(timeOutId)
@@ -32,7 +32,7 @@ function Achievement() {
                 <Odometer value={client} className='title'/>
                 <h1 className="title">+</h1>
             </div>
-            <p className="muted name">clients worldwide</p>
+            <p className="muted name">clients</p>
 
         </div>
 
@@ -41,7 +41,7 @@ function Achievement() {
                 <Odometer value={projects} className='title'/>
                 <h1 className="title">k+</h1>
             </div>
-            <p className="muted name">completed projects</p>
+            <p className="muted name">projets</p>
         </div>
     </div> );
 }

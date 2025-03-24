@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { HiMenu } from 'react-icons/hi';
 import { FaTimes } from 'react-icons/fa';
 import SocialHandles from '../../Commons/SocialHandles';
+import cv from "../../assets/cv.pdf"
 
 function Navbar() {
     const [openSidebar, setOpenSidebar] = useState(false)
@@ -38,7 +39,7 @@ function Navbar() {
             </div>
             <SocialHandles/>
             <div className="box flex-center buttons">
-                <Link to="contact" smooth={true} className='btn primary contact-btn'>Mon CV</Link>
+                <a  href={cv} target='_blank' className='btn primary contact-btn'>Mon CV</a>
                 <Link to="services" smooth={true} className='btn services-btn'>Services</Link>
                 <div className="flex-center icon-wrapper menu-btn"
                 onClick={()=>{setOpenSidebar(!openSidebar)}}>

@@ -28,13 +28,14 @@ function Testimonials() {
     return ( <section id='testimonials'>
         <div className="wrapper">
            <div className="section-header">
-            <h1 className="heading-1">
-                <span className="gradient-text">Testimonials</span>
+            <h1 className="heading-1" data-aos="fade-left">
+                <span className="gradient-text">Les Réactions</span>
             </h1>
-            <h4 className="sub-title">what people are saying</h4>
+            <h4 className="sub-title" data-aos="fade-left" data-aos-delay="400">what people are saying</h4>
 
             </div> 
-            <Slider {...settings} className='testimonials-container' ref={ref}>
+           <div data-aos="fade-right">
+           <Slider {...settings} className='testimonials-container' ref={ref}>
                 {
                     clients.map((list,index)=>(
                         <React.Fragment key={index}>
@@ -47,7 +48,7 @@ function Testimonials() {
                                         {list.name}
                                     </h3>
                                     <small className="muted">
-                                        CEO of microBank
+                                        
                                     </small>
                                    
                                 </div>
@@ -67,7 +68,8 @@ function Testimonials() {
                     ))
                 }
             </Slider>
-            <div className="flex-center buttons-container">
+           </div>
+            <div className="flex-center buttons-container" data-aos="fade-left">
                 <button className="flex-center btn"
                 onClick={()=>ref.current.slickPrev()}>
                     <FaLongArrowAltLeft/>
