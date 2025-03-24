@@ -1,0 +1,66 @@
+
+
+
+/* Style du conteneur principal */
+.fixed-message {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(to right, #4e73df, #2a63a3); /* Dégradé subtilement bleu */
+    color: white;
+    padding: 15px 25px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000;
+    max-width: 280px; /* Largeur maximale */
+    width: auto; /* Ajuste la largeur en fonction du contenu */
+    border-radius: 12px; /* Coins arrondis */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Ombre légère pour plus de profondeur */
+    animation: slideIn 0.5s ease-out forwards; /* Animation d'entrée */
+    overflow: hidden;
+}
+
+/* Animation de l'apparition du message */
+@keyframes slideIn {
+    from {
+        left: -300px; /* Commence à gauche en dehors de l'écran */
+    }
+    to {
+        left: 0; /* Se place à gauche à la position finale */
+    }
+}
+
+/* Style du texte à l'intérieur du conteneur */
+.fixed-message p {
+    margin: 0; /* Supprime les marges par défaut */
+}
+
+/* Style du bouton de fermeture */
+.fixed-message .close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    padding: 0;
+    transition: color 0.3s;
+}
+
+.fixed-message .close-btn:hover {
+    color: #ff8c00; /* Change la couleur lors du survol */
+}
+
+/* Responsive pour les petits écrans (mobile) */
+@media (max-width: 600px) {
+    .fixed-message {
+        max-width: 90%; /* Réduit la largeur à 90% de l'écran */
+        left: 5%; /* Un peu d'espace à gauche */
+        font-size: 16px; /* Réduit légèrement la taille du texte */
+    }
+}

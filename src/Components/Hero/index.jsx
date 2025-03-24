@@ -1,6 +1,6 @@
 import { Link } from 'react-scroll';
 import './Hero.css'
-import me from '../../assets/me.png'
+import me from '../../assets/photo.webp'
 import Achievement from '../../Commons/Achievement';
 function Hero() {
     return ( <section id='hero'>
@@ -18,8 +18,8 @@ function Hero() {
 
                 </p>
                 <div className="flex-center buttons-wrapper">
-                   <Link to='services'smooth={true} className='btn primary'>Learn more</Link>
-                   <Link to='contact'smooth={true} className='btn '>Get started</Link>
+                   {/* <Link to='services'smooth={true} className='btn primary'>Learn more</Link>
+                   <Link to='contact'smooth={true} className='btn '>Get started</Link> */}
 
                 </div>
         </div>

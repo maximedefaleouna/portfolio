@@ -1,8 +1,56 @@
 import './Projects.css'
+import {projects} from './../../sources'
+import { useEffect, useState } from 'react';
+import ProjectCard from './ProjectCard';
+import ProjectNav from './ProjectNav';
 function Projects() {
-    return ( <div>
-        <h1>Projects</h1>
-    </div> );
+    const [activeProjects , setActiveProjects] = useState(projects);
+    const [load , setLoad]= useState(false)
+    useEffect(()=>{
+        setLoad(true);
+        setTimeout(()=>{
+            setLoad(false);
+        },600)
+    },[activeProjects])
+    const getTabs = ()=>{
+        const tabs = ["All"]
+        projects.map((item)=>{
+            if(!tabs.includes(item.category)){
+                tabs.push(item.category);
+            }
+        })
+        return tabs ;
+    }
+    const setProjects = (value)=>{
+        if(value === 'All'){
+            return setActiveProjects(projects)
+        }
+        const new_projects = projects.filter(item => item.category === value);
+        setActiveProjects(new_projects);
+    }
+    return ( <section id='projects'>
+        <div className="wrapper">
+        <div className="section-header">
+            <h1 className="heading-1">
+                <span className="gradient-text">Projects</span>
+            </h1>
+        </div>
+        <ProjectNav tabs={getTabs()}
+        className={load ? 'zoom': " "}
+        onChange={setProjects}/>
+        <div className="projects-container">
+            {
+               activeProjects.map((project,index)=>(
+               <ProjectCard
+               {...project}
+               key={index}
+               />
+               ))
+            }
+        </div>
+        </div>
+        
+    </section> );
 }
 
 export default Projects;

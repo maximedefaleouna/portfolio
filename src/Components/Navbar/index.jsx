@@ -38,7 +38,7 @@ function Navbar() {
             </div>
             <SocialHandles/>
             <div className="box flex-center buttons">
-                <Link to="contact" smooth={true} className='btn primary contact-btn'>Hire me</Link>
+                <Link to="contact" smooth={true} className='btn primary contact-btn'>Mon CV</Link>
                 <Link to="services" smooth={true} className='btn services-btn'>Services</Link>
                 <div className="flex-center icon-wrapper menu-btn"
                 onClick={()=>{setOpenSidebar(!openSidebar)}}>

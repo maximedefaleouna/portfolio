@@ -7,6 +7,7 @@ import Projects from "./Components/Projects"
 import Testimonials from "./Components/Testimonials"
 import Contact from "./Components/Contact"
 import Footer from "./Components/Footer"
+import FixedMessage from "./Components/msg"
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
     <Testimonials/>
     <Contact/>
     <Footer/>
+  
     </>
   )
 }

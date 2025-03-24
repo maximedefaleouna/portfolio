@@ -1,8 +1,84 @@
+import React from 'react';
 import './Testimonials.css'
+import {clients} from '../../sources'
+import Slider from "react-slick";
+import { FaStar } from 'react-icons/fa6';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css"
+import { useRef } from 'react';
+import { FaLongArrowAltLeft , FaLongArrowAltRight } from 'react-icons/fa';
 function Testimonials() {
-    return ( <div>
-        <h1>Testimonials</h1>
-    </div> );
+    const ref = useRef(null);
+    const settings = {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 2, // Corrected the typo here
+        pauseOnHover: true,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        responsive: [
+            {
+                breakpoint: 900,
+                settings: {
+                    slidesToShow: 1, // Corrected the typo here as well
+                },
+            },
+        ],
+    };
+    return ( <section id='testimonials'>
+        <div className="wrapper">
+           <div className="section-header">
+            <h1 className="heading-1">
+                <span className="gradient-text">Testimonials</span>
+            </h1>
+            <h4 className="sub-title">what people are saying</h4>
+
+            </div> 
+            <Slider {...settings} className='testimonials-container' ref={ref}>
+                {
+                    clients.map((list,index)=>(
+                        <React.Fragment key={index}>
+                            <div className="flex">
+                                <div className="profile">
+                                    <img src={list.image} alt={list.name} />
+                                </div>
+                                <div className="details">
+                                    <h3 className="name">
+                                        {list.name}
+                                    </h3>
+                                    <small className="muted">
+                                        CEO of microBank
+                                    </small>
+                                   
+                                </div>
+                            </div>
+                            <p className="muted content">
+                                       {list.review} 
+                                    </p>
+                                    <div className="stars-container">
+                                        <FaStar/>
+                                        <FaStar/>
+                                        <FaStar/>
+                                        <FaStar/>
+                                        <FaStar/>
+
+                                    </div>
+                        </React.Fragment>
+                    ))
+                }
+            </Slider>
+            <div className="flex-center buttons-container">
+                <button className="flex-center btn"
+                onClick={()=>ref.current.slickPrev()}>
+                    <FaLongArrowAltLeft/>
+                </button>
+                <button className="flex-center btn"
+                onClick={()=>ref.current.slickNext()}>
+                    <FaLongArrowAltRight/>
+                </button>
+            </div>
+        </div>
+    </section> );
 }
 
 export default Testimonials;
