@@ -1,23 +1,69 @@
 #hero{
     overflow: hidden;
     position: relative;
-}
-#hero .info-container{
-    display: grid;
-    grid-template-columns: auto 500px;
-    gap: 20px;
     min-height: 100vh;
 }
-#hero .info-container .column:nth-child(1){
-    padding-top: 70px;
+
+#hero .info-container{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    min-height: 100vh;
+    padding-top: 80px;
+    padding-bottom: 190px; /* Espace reserve pour que les cartes en bas ne cachent JAMAIS l'image */
+    align-items: center;
 }
+
+#hero .info-container .column:nth-child(1){
+    padding-top: 20px;
+}
+
 #hero .heading-1,
 #hero .sub-title{
     text-align: left;
 }
+
 #hero .wrapper .buttons-wrapper{
     justify-content: flex-start;
     margin-top: 40px;
+}
+
+#hero .hero-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+}
+
+/* Lueur d'arriere-plan verte pour sublimer les smartphones */
+#hero .hero-image::before{
+    content: '';
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, rgba(82, 194, 52, 0.22) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+#hero .hero-image img{
+    width: auto !important;
+    max-width: 100% !important;
+    max-height: min(480px, calc(100vh - 270px)) !important;
+    min-height: unset !important;
+    height: auto !important;
+    object-fit: contain !important;
+    object-position: center !important;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7));
+    position: relative;
+    z-index: 1;
+    transition: var(--transition);
+}
+
+#hero .hero-image img:hover{
+    transform: translateY(-6px) scale(1.02);
 }
 
 #hero .achievement-cluster{
@@ -27,18 +73,54 @@
     width: 100%;
     -webkit-backdrop-filter: blur(100px);
     backdrop-filter: blur(100px);
+    z-index: 2;
 }
+
 #hero .achievement-cluster .wrapper{
-    padding: 30px 20px;
+    padding: 20px 20px 30px 20px;
 }
+
+/* Responsive Tablette & Mobile */
 @media (max-width:1050px){
-    #hero .info-container *{
-        text-align: center;
+    #hero{
+        min-height: auto;
     }
     #hero .info-container{
         grid-template-columns: 100%;
+        min-height: auto;
+        padding-top: 100px;
+        padding-bottom: 20px;
+    }
+    #hero .info-container *{
+        text-align: center;
     }
     #hero .info-container .buttons-wrapper{
         justify-content: center;
+    }
+    #hero .hero-image{
+        margin: 20px auto 0;
+        max-width: 380px;
+    }
+    #hero .hero-image img{
+        max-height: 380px !important;
+        width: 100% !important;
+    }
+    #hero .achievement-cluster{
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin-top: 30px;
+    }
+    #hero .achievement-cluster .wrapper{
+        padding: 20px;
+    }
+}
+
+@media (max-width:600px){
+    #hero .hero-image{
+        max-width: 300px;
+    }
+    #hero .hero-image img{
+        max-height: 320px !important;
     }
 }
